@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Dziennik_elektroniczny.Models.Obecnosc>
+
+<h1>Lista obecności</h1>
+
+<p>
+    <a asp-action="DodajObecnosc" class="btn btn-primary">Dodaj obecność</a>
+</p>
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Data zajęć</th>
+            <th>Uczeń</th>
+            <th>Obecność</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.DataZajec.ToShortDateString()</td>
+                <td>@item.Uczen?.Imie @item.Uczen?.Nazwisko</td>  
+                <td>@(item.Obecny ? "Obecny" : "Nieobecny")</td>
+                <td>
+                    <a asp-action="EdytujObecnosc" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Edytuj</a>
+                    <a asp-action="UsunObecnosc" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Dziennik_elektroniczny.Models.Przedmiot>
+
+<h1>Lista przedmiotów</h1>
+
+<p>
+    <a asp-action="DodajPrzedmiot" class="btn btn-primary">Dodaj przedmiot</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nazwa</th>
+            <th>Nauczyciel</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var przedmiot in Model)
+        {
+            <tr>
+                <td>@przedmiot.Nazwa</td>
+                <td>@($"{przedmiot.Nauczyciel.Imie} {przedmiot.Nauczyciel.Nazwisko}")</td>
+                <td>
+                    <a asp-action="EdytujPrzedmiot" asp-route-id="@przedmiot.Id" class="btn btn-warning btn-sm">Edytuj</a>
+                    <a asp-action="UsunPrzedmiot" asp-route-id="@przedmiot.Id" class="btn btn-danger btn-sm">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

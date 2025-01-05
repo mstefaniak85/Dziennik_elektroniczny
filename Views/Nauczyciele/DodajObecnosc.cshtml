@@ -1,0 +1,27 @@
+﻿@model Dziennik_elektroniczny.Models.Obecnosc
+
+<h1>Dodaj obecność</h1>
+
+<form asp-action="DodajObecnosc" method="post">
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <label asp-for="UczenId" class="control-label">Uczeń</label>
+        <select asp-for="UczenId" class="form-control" asp-items="ViewBag.Uczniowie"></select>
+        <span asp-validation-for="UczenId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DataZajec" class="control-label">Data zajęć</label>
+        <input asp-for="DataZajec" type="date" class="form-control" />
+        <span asp-validation-for="DataZajec" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Obecny" class="control-label">Obecność</label>
+        <select asp-for="Obecny" class="form-control">
+            <option value="true">Obecny</option>
+            <option value="false">Nieobecny</option>
+        </select>
+        <span asp-validation-for="Obecny" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Dodaj</button>
+    <a asp-action="Obecnosci" class="btn btn-secondary">Anuluj</a>
+</form>

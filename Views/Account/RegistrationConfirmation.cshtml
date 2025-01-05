@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Potwierdzenie rejestracji";
+}
+
+<h1>Rejestracja zakończona</h1>
+<p>@ViewBag.Message</p>
+
+@if (ViewBag.ConfirmationLink != null)
+{
+    <p><strong>Link aktywacyjny:</strong> <a href="@ViewBag.ConfirmationLink">@ViewBag.ConfirmationLink</a></p>
+}

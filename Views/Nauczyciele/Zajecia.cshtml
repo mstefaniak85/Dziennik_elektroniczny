@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Dziennik_elektroniczny.Models.Zajecia>
+
+@{
+    ViewData["Title"] = "Zajęcia";
+}
+
+<h1>Lista zajęć</h1>
+<a asp-action="DodajZajecia" class="btn btn-primary">Dodaj zajęcia</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Data</th>
+            <th>Klasa</th>
+            <th>Przedmiot</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var zajecie in Model)
+        {
+            <tr>
+                <td>@zajecie.DataZajec.ToShortDateString()</td>
+                <td>@zajecie.Klasa?.Nazwa</td>
+                <td>@zajecie.Przedmiot?.Nazwa</td>
+                <td>
+                    <a asp-action="EdytujZajecia" asp-route-id="@zajecie.Id" class="btn btn-warning">Edytuj</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

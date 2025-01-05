@@ -1,0 +1,11 @@
+﻿@model Dziennik_elektroniczny.Models.Uczen
+
+<h1>Usuń ucznia</h1>
+
+<p>Czy na pewno chcesz usunąć ucznia <strong>@Model.Imie @Model.Nazwisko</strong> z klasy <strong>@Model.Klasa?.Nazwa</strong>?</p>
+
+<form asp-action="UsunUcznia" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Usuń</button>
+    <a asp-action="Uczniowie" class="btn btn-secondary">Anuluj</a>
+</form>

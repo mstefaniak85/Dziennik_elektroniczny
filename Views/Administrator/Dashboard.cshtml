@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Panel Administratora";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>Witaj w panelu administratora, <b>@User.Identity.Name!</b> Możesz zarządzać następującymi elementami:</p>
+
+<div>
+    <a asp-controller="Administrator" asp-action="Uczniowie" class="btn btn-primary">Zarządzaj uczniami</a>
+    <a asp-controller="Administrator" asp-action="Nauczyciele" class="btn btn-primary">Zarządzaj nauczycielami</a>
+    <a asp-controller="Administrator" asp-action="Klasy" class="btn btn-primary">Zarządzaj klasami</a>
+    <a asp-controller="Administrator" asp-action="Przedmioty" class="btn btn-primary">Zarządzaj przedmiotami</a>
+    <a asp-controller="Administrator" asp-action="Zajecia" class="btn btn-primary">Zarządzaj zajęciami</a>
+    <a asp-controller="Administrator" asp-action="Obecnosci" class="btn btn-primary">Zarządzaj obecnościami</a>
+    <a asp-controller="Administrator" asp-action="Oceny" class="btn btn-primary">Zarządzaj ocenami</a>
+</div>

@@ -1,0 +1,24 @@
+﻿@model Dziennik_elektroniczny.Models.Zajecia
+
+<h1>Dodaj zajęcia</h1>
+
+<form asp-action="DodajZajecia" method="post">
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <label asp-for="DataZajec" class="control-label">Data zajęć</label>
+        <input asp-for="DataZajec" type="date" class="form-control" />
+        <span asp-validation-for="DataZajec" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="KlasaId" class="control-label">Klasa</label>
+        <select asp-for="KlasaId" class="form-control" asp-items="ViewBag.Klasy"></select>
+        <span asp-validation-for="KlasaId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PrzedmiotId" class="control-label">Przedmiot</label>
+        <select asp-for="PrzedmiotId" class="form-control" asp-items="ViewBag.Przedmioty"></select>
+        <span asp-validation-for="PrzedmiotId" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Zapisz</button>
+    <a asp-action="Zajecia" class="btn btn-secondary">Anuluj</a>
+</form>

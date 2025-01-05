@@ -1,0 +1,12 @@
+﻿@model Dziennik_elektroniczny.Models.Zajecia
+
+<h1>Usuń zajęcia</h1>
+
+<p>Czy na pewno chcesz usunąć zajęcia dla klasy <strong>@Model.Klasa?.Nazwa</strong> z przedmiotu <strong>@Model.Przedmiot?.Nazwa</strong> w dniu <strong>@Model.DataZajec.ToString("yyyy-MM-dd")</strong>?</p>
+
+<form asp-action="UsunZajecia" method="post">
+    @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Usuń</button>
+    <a asp-action="Zajecia" class="btn btn-secondary">Anuluj</a>
+</form>

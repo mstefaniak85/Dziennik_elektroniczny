@@ -1,0 +1,12 @@
+﻿@model Dziennik_elektroniczny.Models.Nauczyciel
+
+<h1>Usuń nauczyciela</h1>
+
+<p>Czy na pewno chcesz usunąć nauczyciela <strong>@Model.Imie @Model.Nazwisko</strong>, który specjalizuje się w <strong>@Model.Przedmiot</strong>?</p>
+
+<form asp-action="UsunNauczyciela" method="post">
+    @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Usuń</button>
+    <a asp-action="Nauczyciele" class="btn btn-secondary">Anuluj</a>
+</form>

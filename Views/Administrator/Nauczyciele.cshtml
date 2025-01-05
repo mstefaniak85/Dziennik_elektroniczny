@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Dziennik_elektroniczny.Models.Nauczyciel>
+
+<h1>Lista nauczycieli</h1>
+
+<p>
+    <a asp-action="DodajNauczyciela" class="btn btn-primary">Dodaj nauczyciela</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th>Przedmiot</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var nauczyciel in Model)
+        {
+            <tr>
+                <td>@nauczyciel.Imie</td>
+                <td>@nauczyciel.Nazwisko</td>
+                <td>@nauczyciel.Przedmiot</td>
+                <td>
+                    <a asp-action="EdytujNauczyciela" asp-route-id="@nauczyciel.Id" class="btn btn-warning btn-sm">Edytuj</a>
+                    <a asp-action="UsunNauczyciela" asp-route-id="@nauczyciel.Id" class="btn btn-danger btn-sm">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

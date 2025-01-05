@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Dziennik_elektroniczny.Models.Zajecia>
+
+<h1>Zarządzanie zajęciami</h1>
+
+<p>
+    <a asp-action="DodajZajecia" class="btn btn-primary">Dodaj zajęcia</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Data zajęć</th>
+            <th>Klasa</th>
+            <th>Przedmiot</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var zajecia in Model)
+        {
+            <tr>
+                <td>@zajecia.DataZajec.ToString("yyyy-MM-dd")</td>
+                <td>@zajecia.Klasa?.Nazwa</td>
+                <td>@zajecia.Przedmiot?.Nazwa</td>
+                <td>
+                    <a asp-action="EdytujZajecia" asp-route-id="@zajecia.Id" class="btn btn-warning btn-sm">Edytuj</a>
+                    <a asp-action="UsunZajecia" asp-route-id="@zajecia.Id" class="btn btn-danger btn-sm">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

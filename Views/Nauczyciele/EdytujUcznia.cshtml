@@ -1,0 +1,23 @@
+﻿@model Dziennik_elektroniczny.Models.Uczen
+
+<h1>Edytuj ucznia</h1>
+
+<form asp-action="EdytujUcznia" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label for="Imie">Imię</label>
+        <input asp-for="Imie" class="form-control" />
+        <span asp-validation-for="Imie" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="Nazwisko">Nazwisko</label>
+        <input asp-for="Nazwisko" class="form-control" />
+        <span asp-validation-for="Nazwisko" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="KlasaId">Klasa</label>
+        <select asp-for="KlasaId" asp-items="ViewBag.Klasy" class="form-control"></select>
+        <span asp-validation-for="KlasaId" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Zapisz</button>
+</form>

@@ -1,0 +1,34 @@
+﻿@model Dziennik_elektroniczny.Models.Oceny
+
+<h1>Dodaj ocenę</h1>
+
+<form asp-action="DodajOcene" method="post">
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label asp-for="UczenId" class="control-label">Uczeń</label>
+        <select asp-for="UczenId" class="form-control" asp-items="ViewBag.Uczniowie"></select>
+        <span asp-validation-for="UczenId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PrzedmiotId" class="control-label">Przedmiot</label>
+        <select asp-for="PrzedmiotId" class="form-control" asp-items="ViewBag.Przedmioty"></select>
+        <span asp-validation-for="PrzedmiotId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Ocena" class="control-label">Ocena</label>
+        <input asp-for="Ocena" class="form-control" />
+        <span asp-validation-for="Ocena" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DataOceny" class="control-label">Data oceny</label>
+        <input asp-for="DataOceny" type="date" class="form-control" />
+        <span asp-validation-for="DataOceny" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Dodaj</button>
+    <a asp-action="Oceny" class="btn btn-secondary">Anuluj</a>
+</form>

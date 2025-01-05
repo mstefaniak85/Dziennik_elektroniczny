@@ -1,0 +1,24 @@
+﻿@model Dziennik_elektroniczny.Models.Nauczyciel
+
+<h1>Dodaj nauczyciela</h1>
+
+<form asp-action="DodajNauczyciela" method="post">
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <label asp-for="Imie" class="control-label">Imię</label>
+        <input asp-for="Imie" class="form-control" />
+        <span asp-validation-for="Imie" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Nazwisko" class="control-label">Nazwisko</label>
+        <input asp-for="Nazwisko" class="form-control" />
+        <span asp-validation-for="Nazwisko" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Przedmiot" class="control-label">Przedmiot</label>
+        <input asp-for="Przedmiot" class="form-control" />
+        <span asp-validation-for="Przedmiot" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Dodaj</button>
+    <a asp-action="Nauczyciele" class="btn btn-secondary">Anuluj</a>
+</form>

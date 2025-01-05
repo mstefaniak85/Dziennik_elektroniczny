@@ -1,0 +1,11 @@
+﻿@model ErrorViewModel
+
+<div class="text-center">
+    <h1 class="display-4 text-danger">Wystąpił błąd</h1>
+    <p class="text-muted">Przepraszamy za niedogodności.</p>
+    @if (Model?.RequestId != null)
+    {
+        <p><strong>Identyfikator błędu:</strong> @Model.RequestId</p>
+    }
+    <a href="/" class="btn btn-primary">Powrót na stronę główną</a>
+</div>

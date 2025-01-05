@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Panel ucznia";
+}
+
+<h1>@ViewData["Message"]</h1>
+
+<p>Witaj w panelu ucznia! <b>@User.Identity.Name!</b> Możesz zarządzać następującymi elementami:</p>
+<div>
+  
+    <a asp-controller="Uczen" asp-action="Oceny" class="btn btn-primary">Moje oceny</a>
+
+    <a asp-controller="Uczen" asp-action="Obecnosci" class="btn btn-primary">Moja obecność</a>
+</div>

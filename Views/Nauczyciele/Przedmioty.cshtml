@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Dziennik_elektroniczny.Models.Przedmiot>
+
+@{
+    ViewData["Title"] = "Przedmioty";
+}
+
+<h1>Lista przedmiotów</h1>
+<a asp-action="DodajPrzedmiot" class="btn btn-primary">Dodaj przedmiot</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nazwa</th>
+            <th>Nauczyciel</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var przedmiot in Model)
+        {
+            <tr>
+                <td>@przedmiot.Nazwa</td>
+                <td>@($"{przedmiot.Nauczyciel?.Imie} {przedmiot.Nauczyciel?.Nazwisko}")</td>
+                <td>
+                    <a asp-action="EdytujPrzedmiot" asp-route-id="@przedmiot.Id" class="btn btn-warning">Edytuj</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

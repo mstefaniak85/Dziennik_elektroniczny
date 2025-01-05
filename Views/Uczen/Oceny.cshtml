@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Dziennik_elektroniczny.Models.Oceny>
+
+@{
+    ViewData["Title"] = "Moje Oceny";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Przedmiot</th>
+            <th>Ocena</th>
+            <th>Data oceny</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ocena in Model)
+        {
+            <tr>
+                <td>@ocena.Przedmiot.Nazwa</td>
+                <td>@ocena.Ocena</td>
+                <td>@ocena.DataOceny.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>

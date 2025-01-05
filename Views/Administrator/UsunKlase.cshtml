@@ -1,0 +1,12 @@
+﻿@model Dziennik_elektroniczny.Models.Klasa
+
+<h1>Usuń klasę</h1>
+
+<p>Czy na pewno chcesz usunąć klasę <strong>@Model.Numer @Model.Litera</strong>?</p>
+
+<form asp-action="UsunKlase" method="post">
+    @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Usuń</button>
+    <a asp-action="Klasy" class="btn btn-secondary">Anuluj</a>
+</form>

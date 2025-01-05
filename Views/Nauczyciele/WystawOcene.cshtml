@@ -1,0 +1,35 @@
+﻿@model Dziennik_elektroniczny.Models.Oceny
+
+<h2>Wystaw ocenę </h2>
+
+<form asp-action="WystawOcene" method="post">
+    @Html.AntiForgeryToken()
+
+    <!-- Data zajęć -->
+    <div class="form-group">
+        <label for="DataZajec">Data zajęć</label>
+        <input type="date" name="DataZajec" class="form-control" required />
+    </div>
+
+    <!-- Uczeń -->
+    <div class="form-group">
+        <label for="UczenId">Uczeń</label>
+        @Html.DropDownListFor(m => m.UczenId, (SelectList)ViewBag.Uczniowie, "Wybierz ucznia", new { @class = "form-control", required = "required" })
+    </div>
+
+    <!-- Przedmiot -->
+    <div class="form-group">
+        <label for="PrzedmiotId">Przedmiot</label>
+        @Html.DropDownListFor(m => m.PrzedmiotId, (SelectList)ViewBag.Przedmioty, "Wybierz przedmiot", new { @class = "form-control", required = "required" })
+    </div>
+
+    <!-- Ocena -->
+    <div class="form-group">
+        <label for="Ocena">Ocena</label>
+        @Html.EditorFor(m => m.Ocena, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+    </div>
+
+    <!-- Przyciski -->
+    <button type="submit" class="btn btn-primary">Zapisz</button>
+    <a asp-action="Dashboard" class="btn btn-secondary">Anuluj</a>
+</form>

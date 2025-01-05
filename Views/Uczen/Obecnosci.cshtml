@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Dziennik_elektroniczny.Models.Obecnosc>
+
+@{
+    ViewData["Title"] = "Moja obecność";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Data zajęć</th>
+            <th>Obecność</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var obecnosci in Model)
+        {
+            <tr>
+                <td>@obecnosci.DataZajec.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>

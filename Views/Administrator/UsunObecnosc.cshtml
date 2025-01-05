@@ -1,0 +1,12 @@
+﻿@model Dziennik_elektroniczny.Models.Obecnosc
+
+<h1>Usuń obecność</h1>
+
+<p>Czy na pewno chcesz usunąć obecność ucznia <strong>@Model.Uczen?.Imie @Model.Uczen?.Nazwisko</strong> z dnia <strong>@Model.DataZajec.ToShortDateString()</strong>?</p>
+
+<form asp-action="UsunObecnosc" method="post">
+    @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Usuń</button>
+    <a asp-action="Obecnosci" class="btn btn-secondary">Anuluj</a>
+</form>

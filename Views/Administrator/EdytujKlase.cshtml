@@ -1,0 +1,19 @@
+﻿@model Dziennik_elektroniczny.Models.Klasa
+
+<h1>Edytuj klasę</h1>
+
+<form asp-action="EdytujKlase" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label for="Numer">Numer klasy</label>
+        <input asp-for="Numer" class="form-control" />
+        <span asp-validation-for="Numer" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="Litera">Litera klasy</label>
+        <input asp-for="Litera" class="form-control" />
+        <span asp-validation-for="Litera" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Zapisz</button>
+    <a asp-action="Klasy" class="btn btn-secondary">Anuluj</a>
+</form>

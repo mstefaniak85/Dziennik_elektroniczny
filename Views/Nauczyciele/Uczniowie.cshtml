@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Dziennik_elektroniczny.Models.Uczen>
+
+@{
+    ViewData["Title"] = "Uczniowie";
+}
+
+<h1>Lista uczniów</h1>
+<a asp-action="DodajUcznia" class="btn btn-primary">Dodaj ucznia</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Imię i Nazwisko</th>
+            <th>Klasa</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var uczen in Model)
+        {
+            <tr>
+                <td>@($"{uczen.Imie} {uczen.Nazwisko}")</td>  
+                <td>@(uczen.Klasa?.Nazwa ?? "Brak klasy")</td> 
+                <td>
+                    <a asp-action="EdytujUcznia" asp-route-id="@uczen.Id" class="btn btn-warning">Edytuj</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

@@ -1,0 +1,23 @@
+﻿@model Dziennik_elektroniczny.Models.Przedmiot
+
+<h1>Dodaj przedmiot</h1>
+
+<form asp-action="DodajPrzedmiot" method="post">
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label asp-for="Nazwa" class="control-label">Nazwa przedmiotu</label>
+        <input asp-for="Nazwa" class="form-control" />
+        <span asp-validation-for="Nazwa" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="NauczycielId" class="control-label">Nauczyciel</label>
+        <select asp-for="NauczycielId" asp-items="ViewBag.Nauczyciele" class="form-control">
+        </select>
+        <span asp-validation-for="NauczycielId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Zapisz</button>
+    <a asp-action="Przedmioty" class="btn btn-secondary">Anuluj</a>
+</form>

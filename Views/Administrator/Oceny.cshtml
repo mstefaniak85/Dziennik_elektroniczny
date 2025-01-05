@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Dziennik_elektroniczny.Models.Oceny>
+
+<h1>Lista ocen</h1>
+
+<p>
+    <a asp-action="DodajOcene" class="btn btn-primary">Dodaj ocenę</a>
+</p>
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Uczeń</th>
+            <th>Przedmiot</th>
+            <th>Ocena</th>
+            <th>Data</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ocena in Model)
+        {
+            <tr>
+              
+                <td>@ocena.Uczen?.Imie @ocena.Uczen?.Nazwisko</td>
+
+              
+                <td>@ocena.Przedmiot?.Nazwa</td>
+
+               
+                <td>@ocena.Ocena</td>
+
+             
+                <td>@ocena.DataOceny.ToShortDateString()</td>
+
+                <td>
+                   
+                    <a asp-action="EdytujOcene" asp-route-id="@ocena.Id" class="btn btn-warning btn-sm">Edytuj</a>
+                    <a asp-action="UsunOcene" asp-route-id="@ocena.Id" class="btn btn-danger btn-sm">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

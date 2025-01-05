@@ -1,0 +1,12 @@
+﻿@model Dziennik_elektroniczny.Models.Oceny
+
+<h1>Usuń ocenę</h1>
+
+<p>Czy na pewno chcesz usunąć ocenę <strong>@Model.Ocena</strong> z dnia <strong>@Model.DataOceny.ToShortDateString()</strong> dla ucznia <strong>@Model.Uczen?.Imie @Model.Uczen?.Nazwisko</strong> z przedmiotu <strong>@Model.Przedmiot?.Nazwa</strong>?</p>
+
+<form asp-action="UsunOcene" method="post">
+    @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Usuń</button>
+    <a asp-action="Oceny" class="btn btn-secondary">Anuluj</a>
+</form>
